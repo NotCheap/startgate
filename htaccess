@@ -1,0 +1,18 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^dev\.startgate\.startvr\.co$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.dev\.startgate\.startvr\.co$
+RewriteRule ^/?$ "http\:\/\/startvr\.co" [R=301,L]
+
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /_dev/startgate/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /_dev/startgate/index.php [L]
+</IfModule>
+
+# END WordPress
